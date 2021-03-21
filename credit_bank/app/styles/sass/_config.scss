@@ -16,9 +16,11 @@ $gutter: $grid-gutter-width;
 
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'; // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'; // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/_modal.scss';
 // @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
 // @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
 
+@import '/app/libs/hystModal/dist/hystmodal.min.css';
 // FONTS LOAD SECTION
 
 @mixin font($fname, $fstyle, $fweight, $furl){
@@ -101,4 +103,7 @@ section{
   &:hover {
     background: darken($color: $accent, $amount: 25);
   }
+	&:focus {
+		border: 1px solid #a7a7a7;
+	}
 }

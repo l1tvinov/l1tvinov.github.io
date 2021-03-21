@@ -1,0 +1,99 @@
+<!-- <div class="hystmodal" id="myModal" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window" role="dialog" aria-modal="true">
+      <button data-hystclose class="hystmodal__close">Закрыть</button>
+      <div class="hystmodal__styled">
+        <div class="loginblock__h1">Заявка на карту</div>
+        <form action="#" method="POST" id="appVue" @submit="checkForm">
+          <p v-if="errors.length">
+            <b>Пожалуйста исправьте указанные ошибки:</b>
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
+          </p>
+          <div class="formitem valid">
+            <input type="text" name="username" placeholder="ФИО" value="" v-model="name">
+          </div>
+          <div class="formitem invalid">
+            <input type="email" name="email" placeholder="Электронный адрес" value="" v-model="email">
+          </div>
+          <div class="formitem">
+            <input type="tel" name="tel" placeholder="Номер телефона" value="" v-model="tel">
+          </div>
+          <div class="formitem select">
+            <select type="select" name="nationality" placeholder="Гражданство" value="" v-model="nationality">
+              <option value="Российская федерация">Российская федерация</option>
+              <option value="Белорусь">Белорусь</option>
+              <option value="Украина">Украина</option>
+              <option value="Казахстан">Казахстан</option>
+            </select>
+          </div>
+
+          <div class="loginblock__bottom">
+            <input type="checkbox" id="check" />
+            <label for="check" style="--d: 39px">
+              <svg viewBox="0,0,50,50">
+                <path d="M5 30 L 20 45 L 45 5"></path>
+              </svg>
+            </label>
+            <div class="loginblock__text">Я соглашаюсь на <a href="#" class="link">обработку</a> моих персональных
+              данных </div>
+          </div>
+          <div class="formsubmit">
+            <button type="submit" class="btn">Заказать сейчас</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="hystmodal" id="Modal2" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window" role="dialog" aria-modal="true">
+      <button data-hystclose class="hystmodal__close">Закрыть</button>
+      <div class="hystmodal__styled">
+
+<form action="#" id="appVue" class="form__body" @submit="checkForm">
+  <p v-if="errors.length">
+    <b>Пожалуйста исправьте указанные ошибки:</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </p>
+  <div class="form__item" v-bind:class="classValid">
+    <label for="formName" class="form__label"></label>
+    <input id="formName" type="text" name="name" class="form__input" placeholder="ФИО" v-model="name">
+  </div>
+  <div class="form__item" v-bind:class="classValid">
+    <label for="formEmail" class="form__label"></label>
+    <input id="formEmail" type="text" name="email" class="form__input" placeholder="Электронный адрес">
+  </div>
+
+  <div class="form__item">
+    <div class="form__label select-wrap">Гражданство</div>
+    <select name="nationality" class="select" v-model="nationality">
+      <option value="Российская федерация">Российская федерация</option>
+      <option value="Белорусь">Белорусь</option>
+      <option value="Украина">Украина</option>
+      <option value="Казахстан">Казахстан</option>
+    </select>
+  </div>
+
+  <div class="form__item">
+    <div class="checkbox">
+      <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input"></input>
+      <label for="formAgreement" class="checkbox__label"> <span>Я соглашаюсь на <a href="#" class="link">обработку</a>
+          моих персональных данных </span></label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn form__button">Заказать сейчас</button>
+
+</form>
+
+</div>
+</div>
+</div>
