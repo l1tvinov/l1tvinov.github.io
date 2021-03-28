@@ -1,81 +1,115 @@
-// // Import jQuery module (npm i jquery)
-// import $ from 'jquery'
-// window.jQuery = $
-// window.$ = $
 
 // // Import vendor jQuery plugin example (not module)
 // require('~/app/libs/mmenu/dist/mmenu.js')
 require('~/app/libs/hystModal/dist/hystmodal.min.js')
 
+
+// require('~/app/libs/vue.js')
 // import Vue from 'vue';
+import Vuelidate from "vuelidate";
+// import App from "../App.vue";
+
+Vue.use(Vuelidate);
+
+new Vue({
+  render: h => h(App)
+}).$mount("#app");
+
+import {
+	validationMixin
+} from 'vuelidate'
+import {
+	required,
+	minLength,
+	email
+} from 'vuelidate/lib/validators'
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	let app = new Vue({
-		el: '#appVue',
-		data: {
-			errors: [],
-			name: null,
-			email: null,
-			tel: null,
-			nationality: null,
-			classValid: '',
-			
-		},
-		methods: {
-			checkForm: function (e) {
-			
-				this.errors = [];
-	
-				if (!this.name) {
-					this.errors.push('Требуется указать имя.');
-					this.classValid = 'invalid';
-				}
-				if (!this.email) {
-					this.errors.push('Требуется указать электронную почту.');
-				}
-				else if (!this.validEmail(this.email)) {
-					this.errors.push('Укажите корректный адрес электронной почты.');
-				}
 
-				if (!this.errors.length) {
-					// this.classValid = 'valid';
-					return true;
-					
-				}
-	
-				e.preventDefault();
+let app = new Vue({
+	el: '#appVue',
+	data: {
+		name: '',
+		email: '',
+		tel: null,
+		agreement: false,
+		nationality: 'Russia',
+		classValid: 'valid',
+		nationalities: [{
+				label: 'Российская федерация',
+				value: 'Russia'
 			},
-			validEmail: function (email) {
-				var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-				// this.classValid = 'valid';
-				return re.test(email);
+			{
+				label: 'Белорусь',
+				value: 'Белорусь'
+			},
+			{
+				label: 'Украина',
+				value: 'Ukraine'
+			},
+			{
+				label: 'Казахстан',
+				value: 'Казахстан'
+			},
+		],
+
+	},
+	validations: {
+			name: {
+				required,
+				minLength: minLength(2),
+			},
+			email: {
+				required,
+				email
 			}
-		}
-	});
+		
+	},
+	methods: {
+		checkForm() {
+
+			consol.log('норм');
+		},
+
+	}
+});
+
+let burger = document.querySelector('.header__burger')
+let menuWrap = document.querySelector('.header__menu-wrap')
+burger.addEventListener('click', function(){
+	burger.classList.toggle('active');
+	menuWrap.classList.toggle('active');
+});
+// menuWrap.addEventListener('click', function(){
+// 	menuWrap.classList.remove('active');
+// 	burger.classList.remove('active');
+// });
 
 let tabs = document.querySelector('.tabs')
 let btns = tabs.querySelectorAll('.tabs__btn')
 let items = tabs.querySelectorAll('.tabs__item')
 
 function change(arr, i) {
-	arr.forEach( item => {
-		item.forEach( i => {i.classList.remove('active')})
+	arr.forEach(item => {
+		item.forEach(i => {
+			i.classList.remove('active')
+		})
 		item[i].classList.add('active')
 	})
 }
 
-for(let i = 0; i < btns.length; i++) {
+for (let i = 0; i < btns.length; i++) {
 	btns[i].addEventListener('click', () => {
 		change([btns, items], i)
 	})
 }
 
 const myModal = new HystModal({
-	linkAttributeName: "data-hystmodal",
-	waitTransitions: true,
-	
+linkAttributeName: "data-hystmodal",
+waitTransitions: true,
+
 });
 
 })
