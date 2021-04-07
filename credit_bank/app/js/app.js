@@ -1,80 +1,92 @@
 
 // // Import vendor jQuery plugin example (not module)
-// require('~/app/libs/mmenu/dist/mmenu.js')
+
 require('~/app/libs/hystModal/dist/hystmodal.min.js')
 
 
 // require('~/app/libs/vue.js')
 // import Vue from 'vue';
-import Vuelidate from "vuelidate";
+// import Vuelidate from "vuelidate";
 // import App from "../App.vue";
 
-Vue.use(Vuelidate);
+// Vue.use(Vuelidate);
 
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+// new Vue({
+//   render: h => h(App)
+// }).$mount("#appVue");
 
-import {
-	validationMixin
-} from 'vuelidate'
-import {
-	required,
-	minLength,
-	email
-} from 'vuelidate/lib/validators'
+// import {
+// 	validationMixin
+// } from 'vuelidate'
+// import {
+// 	required,
+// 	minLength,
+// 	email
+// } from 'vuelidate/lib/validators'
 
+
+import { validationMixin } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
 
 document.addEventListener('DOMContentLoaded', () => {
 
 
-let app = new Vue({
+new Vue({
+	
+	mixins: [validationMixin],
 	el: '#appVue',
 	data: {
-		name: '',
-		email: '',
-		tel: null,
+		name: "",
+		email: "",
+		tel: "",
 		agreement: false,
-		nationality: 'Russia',
-		classValid: 'valid',
-		nationalities: [{
-				label: 'Российская федерация',
-				value: 'Russia'
+		nationality: "Russia",
+		classValid: "valid",
+		nationalities: [
+			{
+				label: "Российская федерация",
+				value: "Russia",
 			},
 			{
-				label: 'Белорусь',
-				value: 'Белорусь'
+				label: "Белорусь",
+				value: "Белорусь1",
 			},
 			{
-				label: 'Украина',
-				value: 'Ukraine'
+				label: "Украина",
+				value: "Ukraine",
 			},
 			{
-				label: 'Казахстан',
-				value: 'Казахстан'
+				label: "Казахстан",
+				value: "Казахстан1",
 			},
 		],
-
 	},
-	validations: {
-			name: {
-				required,
-				minLength: minLength(2),
-			},
-			email: {
-				required,
-				email
-			}
-		
+
+validations: {
+	name: {
+		required,
+		minLength: minLength(2),
 	},
-	methods: {
-		checkForm() {
-
-			consol.log('норм');
-		},
-
-	}
+	email: {
+		required,
+		email,
+	},
+	tel:{
+		minLength: minLength(4),
+	},
+},
+methods: {
+	checkForm() {
+		if (this.$v.$invalid) {
+			this.$v.$touch();
+			return;
+		}
+		this.$v.tel.$touch();
+		console.log("норм");
+	},
+},
 });
+
 
 let burger = document.querySelector('.header__burger')
 let menuWrap = document.querySelector('.header__menu-wrap')
@@ -111,5 +123,41 @@ linkAttributeName: "data-hystmodal",
 waitTransitions: true,
 
 });
+
+let animation = document.querySelectorAll('.animation');
+
+function animOnScroll(){
+	for(let index = 0; index <animation.length;  index++){
+		const animItem = animation[index];
+		const animItemHeight = animItem.offsetHeight;
+		const animItemOffset = offset(animItem).top;
+		const animStart = 4;
+		let animItemPoint = window.innerHeight - animItemHeight / animStart;
+		if(animItemHeight > window.innerHeight){
+			animItemPoint = window.innerHeight - window.innerHeight / animStart;
+		
+		}
+		if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)){
+			animItem.classList.add('showAnim');
+		}
+		else{animItem.classList.remove('showAnim');}
+	}
+}
+
+
+function offset(el){
+	const rect = el.getBoundingClientRect();
+	let	scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+	let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	return { top: rect.top + scrollTop, left: rect.left + scrollLeft}
+}
+
+if (animation.length > 0) {
+	window.addEventListener('scroll', animOnScroll);
+}
+
+setTimeout(() =>{
+	animOnScroll();
+}, 500);
 
 })

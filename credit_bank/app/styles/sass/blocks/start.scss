@@ -12,6 +12,14 @@
 .titlewrap {
   max-width: 735px;
   margin-bottom: 84px;
+  transform: translateY(120px);
+  opacity: 0;
+  transition: all 0.8s ease;
+  &.showAnim{
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 0.8s ease;
+  }
 }
 .title {
   font-size: 96px;
@@ -19,6 +27,7 @@
   color: #ffffff;
   display: inline;
   z-index: 2;
+ 
 }
 .subtitle {
   font-size: 24px;
@@ -51,12 +60,17 @@
   margin: 15px;
   margin-bottom: 36px;
   z-index: 2;
+  &.showAnim .advItem__numer{
+    text-shadow:0 0 0 #fff0;
+    transition: all 0.8s ease;
+  }
 
   &__numer {
     font-weight: bold;
     font-size: 36px;
     line-height: 45px;
     color: $accent;
+    text-shadow: -20px -19px 2px  #fff;
   }
 
   &__text {

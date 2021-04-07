@@ -25,6 +25,14 @@
   width: calc(25% - 30px);
   margin: 15px;
   max-width: 200px;
+  &.showAnim .travelItem__img {
+    transform: scale(1);
+    transition: all 0.8s ease 0.3s;
+  }
+  &.showAnim .travelItem__text {
+    transform: translate(0);
+    transition: all 0.8s ease;
+  }
 
   &__img {
     width: 58px;
@@ -32,6 +40,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     margin-bottom: 23px;
+    transform: scale(0);
   }
 
   &__title {
@@ -42,5 +51,6 @@
   }
 
   &__text {
+    transform: translate(-100px, 100px);
   }
 }

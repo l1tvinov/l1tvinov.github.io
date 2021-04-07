@@ -63,7 +63,7 @@
   &__label {
     // margin-bottom: 10px;
     // width: 100%;
-    position: absolute;
+    // position: absolute;
     top: 32px;
     left: 30px;
     transition: .3s;
@@ -193,4 +193,12 @@
 .link {
 }
 .btn {
+}
+
+.error{
+  padding: 10px 30px;
+  color: #CC301B;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 115%;
 }

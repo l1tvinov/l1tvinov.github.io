@@ -43,10 +43,23 @@
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 18px;
+    transform: scale(0);
+    
+    &.showAnim{
+      transform: scale(1);
+      transition: all 0.8s ease;
+    }
   }
 
   &__text {
     max-width: 200px;
     color: #ffffff;
+    transform: translateX(100%);
+    opacity: 0;
+    &.showAnim{
+      transform: translateX(0);
+      opacity: 1;
+      transition: all 0.8s ease;
+    }
   }
 }
