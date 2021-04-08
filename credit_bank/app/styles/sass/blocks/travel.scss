@@ -20,11 +20,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width:760px){
+    justify-content: space-evenly;
+  }
 }
 .travelItem {
   width: calc(25% - 30px);
   margin: 15px;
   max-width: 200px;
+  @media (max-width:760px){
+    width: calc(50% - 30px);
+  }
+  @media (max-width: 576px) {
+    width: calc(100% - 30px);
+  }
   &.showAnim .travelItem__img {
     transform: scale(1);
     transition: all 0.8s ease 0.3s;

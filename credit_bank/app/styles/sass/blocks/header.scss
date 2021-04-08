@@ -1,19 +1,17 @@
-
 .header {
   // margin-top: 85px;
   position: relative;
   padding-bottom: 85px;
-  
-
 
   &__body {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     align-items: center;
     position: fixed;
     height: 40px;
     background-color: #0e0e0e;
-  z-index: 5;
+    z-index: 15;
+    width: 100%;
   }
 
   &__burger {
@@ -24,11 +22,10 @@
     z-index: 4;
     margin-right: 65px;
     cursor: pointer;
-  
     @media (max-width: 992px) {
       display: block;
     }
-  
+
     span {
       background-color: $accent;
       position: absolute;
@@ -37,40 +34,39 @@
       left: 0;
       top: 9px;
     }
-  
+
     &.active span {
       transform: scale(0);
     }
-  
   }
-  
+
   &__burger:before {
-    content: '';
+    content: "";
     background-color: $accent;
     position: absolute;
     width: 100%;
     height: 2px;
     left: 0;
     top: 0;
-    transition: .3s;
+    transition: 0.3s;
   }
-  
+
   &__burger:after {
-    content: '';
+    content: "";
     background-color: $accent;
     position: absolute;
     width: 100%;
     height: 2px;
     left: 0;
     bottom: 0;
-    transition: .3s;
+    transition: 0.3s;
   }
-  
+
   &__burger.active:before {
     transform: rotate(45deg);
     top: 9px;
   }
-  
+
   &__burger.active::after {
     transform: rotate(-45deg);
     bottom: 9px;
@@ -80,6 +76,7 @@
   }
 
   &__menu {
+    margin: 0 15px;
   }
 
   &__list {
@@ -91,18 +88,18 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 30px;
-    color: #FFFFFF;
+    color: #ffffff;
     display: block;
     margin-bottom: 25px;
-    transition: .3s;
-    &:hover{
+    transition: 0.3s;
+    &:hover {
       color: $accent;
-
     }
   }
-  &__menu-wrap{
-    background-color: #1C1C1B;
+  &__menu-wrap {
+    background-color: #1c1c1b;
     width: 390px;
+    max-width: 100%;
     height: 100%;
     min-height: 100vh;
     position: fixed;
@@ -113,26 +110,32 @@
     z-index: 10;
     transition: 0.5s;
     transform: translate(-100%);
-
   }
-  &__menu-wrap.active{
+  &__menu-wrap.active {
     transform: translate(0);
+    // padding-left: 390px;
   }
-}
-.container {
-}
-.footer-col {
-}
-.footer {
-
   &__contact {
+    margin-bottom: 20px;
   }
 
   &__contact-text {
+    line-height: 26px;
   }
 
   &__contact-link {
+    color: #bbbbbb;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
-
+.header-col{
+ margin: 0 15px;
+}
+.container {
+}
 

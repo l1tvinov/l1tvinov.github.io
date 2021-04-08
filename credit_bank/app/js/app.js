@@ -94,10 +94,10 @@ burger.addEventListener('click', function(){
 	burger.classList.toggle('active');
 	menuWrap.classList.toggle('active');
 });
-// menuWrap.addEventListener('click', function(){
-// 	menuWrap.classList.remove('active');
-// 	burger.classList.remove('active');
-// });
+menuWrap.addEventListener('click', function(){
+	menuWrap.classList.remove('active');
+	burger.classList.remove('active');
+});
 
 let tabs = document.querySelector('.tabs')
 let btns = tabs.querySelectorAll('.tabs__btn')
@@ -140,7 +140,7 @@ function animOnScroll(){
 		if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)){
 			animItem.classList.add('showAnim');
 		}
-		else{animItem.classList.remove('showAnim');}
+		// else{animItem.classList.remove('showAnim');}
 	}
 }
 

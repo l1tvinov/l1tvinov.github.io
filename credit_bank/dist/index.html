@@ -52,14 +52,14 @@
 				</ul>
 			</nav>
 
-			<div class="footer-col">
-				<div class="footer__contact">
-					<div class="footer__contact-text">По России</div>
-					<a href="#" class="footer__contact-link">8 800 950 6570</a>
+			<div class="header-col">
+				<div class="header__contact">
+					<div class="header__contact-text">По России</div>
+					<a href="#" class="header__contact-link">8 800 950 6570</a>
 				</div>
-				<div class="footer__contact">
-					<div class="footer__contact-text">По Миру</div>
-					<a href="#" class="footer__contact-link">8 800 950 6570</a>
+				<div class="header__contact">
+					<div class="header__contact-text">По Миру</div>
+					<a href="#" class="header__contact-link">8 800 950 6570</a>
 				</div>
 			</div>
 
@@ -258,12 +258,13 @@
 				<div class="tabs">
 					<div class="tabs__btns">
 						<button class="tabs__btn  active" type="button">Кредитная карта</button>
-						<button class="tabs__btn" type="button">Дебетовая карта</button>
+						<button class="tabs__btn d-sm-none"  type="button">Дебетовая карта</button>
 
 					</div>
 					<div class="tabs__content">
+
 						<div class="tabs__item  active">
-							<button class="btn">Отправить заявку</button>
+							<button class="btn" data-hystmodal="#Modal">Отправить заявку</button>
 							<table>
 								<tr>
 									<td>Стоимость карты в год (руб.)</td>
@@ -283,9 +284,10 @@
 								</tr>
 							</table>
 						</div>
-
+						<div class="duble_btn">Дебетовая карта</div>
 						<div class="tabs__item">
-							<button class="btn">Отправить заявку</button>
+						
+							<button class="btn" data-hystmodal="#Modal">Отправить заявку</button>
 							<table>
 								<tr>
 									<td>Стоимость карты в год (руб.)</td>
@@ -437,7 +439,7 @@
                     class="form__input" 
                     placeholder="Номер телефона"
                     v-model="tel">
-                    <pre class="error">{{ $v.tel }}</pre>
+                    <!-- <pre class="error">{{ $v.tel }}</pre> -->
           </div>
 
           <div class="form__item">

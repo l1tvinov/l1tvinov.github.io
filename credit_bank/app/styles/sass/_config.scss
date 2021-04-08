@@ -82,6 +82,18 @@ img {
 }
 section{
 	margin-bottom: 190px;
+	@media (max-width:760px){
+		margin-bottom: 90px;
+  }
+	@media (max-width:576px){
+		margin-bottom: 40px;
+  }
+}
+
+.d-sm-none{
+	@media (max-width:576px){
+	display: none;
+  }
 }
 
 .btn {
@@ -98,6 +110,7 @@ section{
   text-align: center;
   color: #ffffff;
   width: 290px;
+	max-width: 95%;
   outline: none;
   border: none;
   &:hover {

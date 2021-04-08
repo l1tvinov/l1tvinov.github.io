@@ -20,6 +20,9 @@
 .imgWraper-personal {
   width: calc(50% - 30px);
   margin: 15px;
+  @media (max-width: 576px) {
+    width: calc(100% - 30px);
+  }
 
   img {
     width: 374px;
@@ -29,6 +32,9 @@
 .personalItems {
   width: calc(50% - 30px);
   margin: 15px;
+  @media (max-width: 576px) {
+    width: calc(100% - 30px);
+  }
 }
 .personalItem {
   display: flex;

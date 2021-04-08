@@ -23,10 +23,13 @@
 }
 .title {
   font-size: 96px;
-  line-height: 109px;
+  line-height: 115%;
   color: #ffffff;
   display: inline;
   z-index: 2;
+  @media (max-width:760px){
+    font-size: 50px;
+  }
  
 }
 .subtitle {
@@ -36,6 +39,10 @@
   max-width: 302px;
   margin: 0 32px;
   z-index: 2;
+  @media (max-width:760px){
+    max-width: initial;
+    margin: 10px 0;
+  }
 }
 .bgCart {
   background-size: contain;

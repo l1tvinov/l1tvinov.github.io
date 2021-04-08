@@ -12,6 +12,12 @@
   opacity: 0;
   transform: translateY(70%);
   transition: all 1.5s ease;
+  @media (max-width:760px){
+    width: calc(50% - 30px);
+  }
+  @media (max-width: 576px) {
+    width: calc(100% - 30px);
+  }
   &.showAnim {
     opacity: 1;
     transform: translateY(0);
