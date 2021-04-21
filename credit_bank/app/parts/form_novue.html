@@ -1,0 +1,56 @@
+<div class="hystmodal__styled">
+
+  <form action="#" class="form__body">
+    <input type="hidden" name="project_name" value="SiteName">
+    <input type="hidden" name="admin_email"  value="yourMail">
+   
+    <div class="form__item">
+      <label for="formName" class="form__label"></label>
+      <input  id="formName" 
+              type="text" 
+              name="name" 
+              class="form__input"
+              placeholder="ФИО"
+              >
+    </div>
+    <div class="form__item">
+      <label for="formEmail" class="form__label"></label>
+      <input  id="formEmail" 
+              type="text" 
+              name="email" 
+              class="form__input" 
+              placeholder="Электронный адрес">
+    </div>
+
+    <div class="form__item">
+      <label for="formTel" class="form__label"></label>
+      <input  id="formTel" 
+              type="tel" 
+              name="tel" 
+              class="form__input" 
+              placeholder="Номер телефона">
+    </div>
+
+    <div class="form__item">
+      <div class="select-wrap">Гражданство</div>
+      <select name="nationality" class="select">
+       
+          <option value="РФ"> Россия</option>
+          <option value="Укр"> Украина</option>
+      </select>
+    </div>
+
+    <div class="form__item">
+      <div class="checkbox">
+        <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input" v-model="agreement">
+        <label for="formAgreement" class="checkbox__label"> <span>Я соглашаюсь на <a href="#"
+              class="link">обработку</a>
+            моих персональных данных </span></label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn form__button">Заказать сейчас</button>
+
+  </form>
+
+</div>

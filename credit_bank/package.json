@@ -11,6 +11,7 @@
 		"babel-loader": "^8.2.2",
 		"babel-plugin-module-resolver": "^4.1.0",
 		"babel-plugin-root-import": "^6.6.0",
+		"babel-plugin-transform-runtime": "^6.23.0",
 		"bootstrap": "^4.6.0",
 		"browser-sync": "^2.26.14",
 		"browsersync-ssi": "^0.2.4",
@@ -35,6 +36,7 @@
 		"webpack-stream": "^6.1.2"
 	},
 	"dependencies": {
+		"gulp-sourcemaps": "^3.0.0",
 		"vue": "^2.6.12",
 		"vuelidate": "^0.7.6"
 	}

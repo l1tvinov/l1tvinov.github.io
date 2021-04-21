@@ -15,6 +15,7 @@ const imagemin     = require('gulp-imagemin')
 const newer        = require('gulp-newer')
 const rsync        = require('gulp-rsync')
 const del          = require('del')
+const sourcemaps = require('gulp-sourcemaps');
 
 function browsersync() {
 	browserSync.init({
@@ -34,6 +35,7 @@ function scripts() {
 		.pipe(webpack({
 			mode: 'production',
 			performance: { hints: false },
+			devtool: "inline-source-map",
 			module: {
 				rules: [
 					{
@@ -45,7 +47,11 @@ function scripts() {
 						exclude: /(node_modules)/,
 						loader: 'babel-loader',
 						query: {
-							presets: ['@babel/env'],
+							presets:[['@babel/preset-env', {
+								// debug: true,
+								// corejs: 3,
+								// useBuiltIns: "usage"
+						}]],
 							plugins: ['babel-plugin-root-import']
 						}
 					}
@@ -61,11 +67,13 @@ function scripts() {
 
 function styles() {
 	return src([`app/styles/${preprocessor}/*.*`, `!app/styles/${preprocessor}/_*.*`])
+	.pipe(sourcemaps.init())
 		.pipe(eval(`${preprocessor}glob`)())
 		.pipe(eval(preprocessor)())
 		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 		.pipe(cleancss({ level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
 		.pipe(rename({ suffix: ".min" }))
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(dest('app/css'))
 		.pipe(browserSync.stream())
 }
