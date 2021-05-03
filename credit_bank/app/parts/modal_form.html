@@ -7,10 +7,10 @@
     <div class="hystmodal__window" role="dialog" aria-modal="true">
       <button data-hystclose='' class="hystmodal__close">Закрыть</button>
       <div class="hystmodal__styled">
-
+        <h2 class="titleSection">Заявка на карту</h2>
         <form action="###" id="appVue" class="form__body" @submit.prevent="checkForm">
-          <input type="hidden" name="project_name" value="SiteName">
-          <input type="hidden" name="admin_email"  value="yourMail">
+          <input type="hidden" name="project_name" value="Кредит банк">
+          <input type="hidden" name="admin_email"  value="NEKTO.INC@yandex.ru">
          
           <div class="form__item">
             <label for="formName" class="form__label"
@@ -51,9 +51,7 @@
 
           <div class="form__item">
             <label for="formTel" class="form__label"
-            :class="{invalid: $v.tel.$error, valid : $v.email.$dirty && !$v.tel.$invalid }"
-           
-            ></label>
+            :class="{invalid: $v.tel.$error, valid : $v.email.$dirty && !$v.tel.$invalid }"></label>
             <input  id="formTel" 
                     type="tel" 
                     name="tel" 
@@ -61,6 +59,7 @@
                     placeholder="Номер телефона"
                     v-model="tel">
                     <!-- <pre class="error">{{ $v.tel }}</pre> -->
+                    <div class="error" v-if='$v.tel.$error'>Введите телефон</div>
           </div>
 
           <div class="form__item">
@@ -90,3 +89,16 @@
       </div>
     </div>
   </div>
+
+  <div class="hystmodal" id="thanks" aria-hidden="true">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+            <button data-hystclose class="hystmodal__close">Закрыть</button>
+            <!-- Ваш HTML код модального окна -->
+            <div class="valid valid-thanks"></div>
+            <h2 class="titleSection">Ваша заявка принята</h2>
+             <div class="subtitleSection">В ближайшее время с вами свяжется наш менеджер</div>
+        </div>
+    </div>
+</div>
+ 

@@ -1,22 +1,22 @@
 // // Import vendor jQuery plugin example (not module)
 
-require('~/app/libs/hystModal/dist/hystmodal.min.js')
+require('../libs/hystModal/dist/hystmodal.min.js');
 
-
+// import "core-js/stable";
+import "regenerator-runtime/runtime";
 // require('~/app/libs/vue.js')
 // import Vue from 'vue';
-// import Vuelidate from "vuelidate";
 // import App from "../App.vue";
 
-// Vue.use(Vuelidate);
 
 // new Vue({
 //   render: h => h(App)
 // }).$mount("#appVue");
 
-import './modules/forms';
+// import './modules/forms';
 import './modules/tabs';
 import './modules/animation';
+
 
 import {
 	validationMixin
@@ -29,7 +29,7 @@ import {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-"use strict";
+	"use strict";
 
 	new Vue({
 
@@ -43,21 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			nationality: "Russia",
 			classValid: "valid",
 			nationalities: [{
-					label: "Российская федерация",
-					value: "Russia",
-				},
-				{
-					label: "Белорусь",
-					value: "Белорусь1",
-				},
-				{
-					label: "Украина",
-					value: "Ukraine",
-				},
-				{
-					label: "Казахстан",
-					value: "Казахстан1",
-				},
+				label: "Российская федерация",
+				value: "Russia",
+			},
+			{
+				label: "Белорусь",
+				value: "Белорусь1",
+			},
+			{
+				label: "Украина",
+				value: "Ukraine",
+			},
+			{
+				label: "Казахстан",
+				value: "Казахстан1",
+			},
 			],
 		},
 
@@ -77,19 +77,70 @@ document.addEventListener('DOMContentLoaded', () => {
 		methods: {
 			checkForm() {
 				this.$v.$touch()
-				if(!this.$v.$error){
+				if (!this.$v.$error) {
 					console.log('Валидация успешно');
-				
-				}else{
+					formsSend();
+					myModal.open('#thanks');
+
+				} else {
 					console.log('ошибка валидации');
-				
+
 				}
 			}
-		
+
 		},
 	});
 
-	// formsSend();
+
+
+	const formsSend = () => {
+		const form = document.querySelectorAll('form'),
+			inputs = document.querySelectorAll('input');
+
+
+		const message = {
+			loading: 'Загрузка...',
+			success: 'Спасибо! Скоро мы с вами свяжемся',
+			failure: 'Что-то пошло не так...'
+		};
+
+		const postData = async (url, data) => {
+			document.querySelector('.status').textContent = message.loading;
+			let res = await fetch(url, {
+				method: "POST",
+				body: data
+			});
+
+			return await res.text();
+		};
+
+
+		const clearInputs = () => {
+			inputs.forEach(item => {
+				item.value = '';
+			});
+		};
+		form.forEach(item => {
+			let statusMessage = document.createElement('div');
+			statusMessage.classList.add('status');
+			item.appendChild(statusMessage);
+
+			const formData = new FormData(item);
+
+			postData('../mail.php', formData)
+				.then(res => {
+					console.log(res);
+					statusMessage.textContent = message.success;
+				})
+				.catch(() => statusMessage.textContent = message.failure)
+				.finally(() => {
+					clearInputs();
+					setTimeout(() => {
+						statusMessage.remove();
+					}, 5000);
+				});
+		});
+	};
 
 
 	let burger = document.querySelector('.header__burger')

@@ -26,9 +26,14 @@
   z-index: 1;
   border-right: solid #89cc1b;
   border-top: solid #89cc1b;
-  width: 16px;
-  height: 14px;
+  width: 19px;
+  height: 12px;
   transform: rotate(130deg);
+}
+
+.valid-thanks:after{
+  top: 10px;
+  right: 50%;
 }
 
 .invalid:before,
@@ -76,7 +81,7 @@
     width: 100%;
     padding: 0 30px;
     background-color: #191919;
-    color: #6c6c6c;
+    color: #fff;
     font-size: 20px;
     border-radius: 10px;
     border: none;
@@ -188,6 +193,11 @@
       transition: 0.3s;
     }
   }
+}
+
+input:-webkit-autofill{
+font-size: 20px;
+  transition: background-color 500s ease-in-out 0s;
 }
 
 .link {
