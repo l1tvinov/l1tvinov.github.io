@@ -1,0 +1,95 @@
+<!-- <script src="https://unpkg.com/vue@next"></script> -->
+
+<div class="container">
+    <div class="hystmodal__styled" style="max-width: 700px;">
+        <h2 class="titleSection">Заявка на карту</h2>
+        <form action="###" id="appVue" class="form__body" @submit.prevent="checkForm">
+            <input type="hidden" name="project_name" value="Кредит банк" />
+            <input type="hidden" name="admin_email" value="NEKTO.INC@yandex.ru" /> {{lastname}}
+            <div class="form__item">
+                <label for="formName" class="form__label"></label>
+                <span class="form_icon"></span>
+                <input id="formName" type="text" name="name" class="form__input" v-model="name" />
+                <!-- <pre>{{ $v.name }}</pre> -->
+                <!-- <div class="error" v-if="$v.name.$error">Введите имя</div> -->
+            </div>
+
+            <div class="form__item">
+                <div class="select-wrap">Гражданство</div>
+                <select name="nationality" class="select" v-model="nationality">
+          <option
+            value=""
+            v-for="nationality in nationalities"
+            :value="nationality.value"
+          >
+            {{nationality.label}}
+          </option>
+        </select>
+            </div>
+
+            <div class="form__item">
+                <div class="checkbox">
+                    <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input" v-model="agreement" />
+                    <label for="formAgreement" class="checkbox__label">
+            <span
+              >Я соглашаюсь на
+              <a href="#" class="link link-form">обработку</a> моих персональных
+              данных
+            </span></label
+          >
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn form__button"
+        v-bind:disabled="!agreement"
+      >
+        Заказать сейчас
+      </button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  Vue.createApp({
+      data: () => ({
+          lastname: 'lit',
+          info: [{
+              name: 'Name',
+              value: '',
+              pattern: /^[a-zA-Z ]{2,30}$/
+          }, {
+              name: 'Phone',
+              value: '',
+              pattern: /^[0-9]{7,14}$/
+          }, {
+              name: 'Email',
+              value: '',
+              pattern: /.+/
+          }, {
+              name: 'Some Field 1',
+              value: '',
+              pattern: /.+/
+          }, {
+              name: 'Some Field 2',
+              value: '',
+              pattern: /.+/
+          }],
+          nationalities: [{
+              label: "Российская федерация",
+              value: "Russia",
+          }, {
+              label: "Белорусь",
+              value: "Белорусь1",
+          }, {
+              label: "Украина",
+              value: "Ukraine",
+          }, {
+              label: "Казахстан",
+              value: "Казахстан1",
+          }, ],
+      })
+  }).mount('#appVue');
+</script>

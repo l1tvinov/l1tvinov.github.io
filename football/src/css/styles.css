@@ -1,0 +1,57 @@
+html,
+body {
+    margin: 0;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+div {
+    margin: 1rem 0;
+}
+
+.renderPeople ul {
+    list-style: none;
+    padding: 2rem;
+    margin: 0;
+    border: 1px solid;
+    min-width: 280px;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.renderPeople {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.showLog {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+#download {
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: #65c178;
+    font-size: 20px;
+    line-height: 40px;
+    white-space: nowrap;
+    width: 180px;
+    margin: 15px auto;
+}

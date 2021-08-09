@@ -2,13 +2,11 @@
   margin-bottom: 85px;
 }
 
-
 .appItems {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
-  
 }
 .appItem {
   width: calc(33% - 30px);
@@ -27,8 +25,5 @@
       font-size: 18px;
       line-height: 23px;
     }
-  }
-
-  &__text {
   }
 }

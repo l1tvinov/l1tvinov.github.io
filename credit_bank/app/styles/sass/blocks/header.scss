@@ -1,11 +1,9 @@
 .header {
-  // margin-top: 85px;
   position: relative;
   padding-bottom: 85px;
 
   &__body {
     display: flex;
-    // flex-wrap: wrap;
     align-items: center;
     position: fixed;
     height: 40px;
@@ -15,7 +13,6 @@
   }
 
   &__burger {
-    // display: none;
     position: relative;
     width: 25px;
     height: 20px;
@@ -72,9 +69,6 @@
     bottom: 9px;
   }
 
-  &__logo {
-  }
-
   &__menu {
     margin: 0 15px;
   }
@@ -113,7 +107,6 @@
   }
   &__menu-wrap.active {
     transform: translate(0);
-    // padding-left: 390px;
   }
   &__contact {
     margin-bottom: 20px;
@@ -133,9 +126,6 @@
     }
   }
 }
-.header-col{
- margin: 0 15px;
+.header-col {
+  margin: 0 15px;
 }
-.container {
-}
-

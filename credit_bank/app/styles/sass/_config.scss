@@ -1,9 +1,7 @@
-// USER VARIABLES SECTION
-
-$accent: #C0965C; // Accent Color
+$accent: #c0965c; // Accent Color
 $fontsize: 14px; // Body Font Size
-$textcolor: #6C6C6C; // Text Color
-$bacgraundcolor: #0E0E0E;
+$textcolor: #6c6c6c; // Text Color
+$bacgraundcolor: #0e0e0e;
 $lineheight: 20px; // Document Line Height
 $userfont: Geometria, sans-serif; // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
@@ -14,91 +12,86 @@ $gutter: $grid-gutter-width;
 
 // IMPORT SECTION
 
-@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'; // Bootstrap Reboot collection
-@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'; // Bootstrap Breakpoints mixin
-// @import 'node_modules/bootstrap/scss/_modal.scss';
-// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
-// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+@import "node_modules/bootstrap/scss/bootstrap-reboot.scss"; // Bootstrap Reboot collection
+@import "node_modules/bootstrap/scss/mixins/_breakpoints.scss"; // Bootstrap Breakpoints mixin
 
-@import '/app/libs/hystModal/dist/hystmodal.min.css';
+@import "/app/libs/hystModal/dist/hystmodal.min.css";
 // FONTS LOAD SECTION
 
-@mixin font($fname, $fstyle, $fweight, $furl){
-	@font-face{
-		font-family: $fname;
-		font-style: $fstyle;
-		font-weight: $fweight;
-		src: url($furl) format('woff2');
-	}
+@mixin font($fname, $fstyle, $fweight, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format("woff2");
+  }
 }
-	
-	
-@include font('Geometria', normal, 400, '../fonts/Geometria-Regular.woff2');
-@include font('Geometria', normal, 700, '../fonts/Geometria-Bold.woff2');
+
+@include font("Geometria", normal, 400, "../fonts/Geometria-Regular.woff2");
+@include font("Geometria", normal, 700, "../fonts/Geometria-Bold.woff2");
 
 // GENERAL DOCUMENT STYLES
 
-::placeholder{
-	color: #666;
-}
-	
-
-::selection{
-		background-color: $accent;
-	color: #fff;
+::placeholder {
+  color: #666;
 }
 
-
-input, textarea{
-	outline: none;
-	&:focus:required:invalid{
-		border-color: red;
-	}
-	&:required:valid{
-		border-color: green;
-	}
+::selection {
+  background-color: $accent;
+  color: #fff;
 }
 
-body{
-	font-family: $userfont;
-	font-size: $fontsize;
-	line-height: $lineheight;
-	color: $textcolor;
-	min-width: 320px;
-	position: relative;
-	overflow-x: hidden;
-	background: $bacgraundcolor;
+input,
+textarea {
+  outline: none;
+  &:focus:required:invalid {
+    border-color: red;
+  }
+  &:required:valid {
+    border-color: green;
+  }
+}
+
+body {
+  font-family: $userfont;
+  font-size: $fontsize;
+  line-height: $lineheight;
+  color: $textcolor;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+  background: $bacgraundcolor;
 }
 
 .container {
-	max-width: 1040px;
-	margin: 0 auto;
-	padding: 0 15px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
-section{
-	margin-bottom: 190px;
-	@media (max-width:760px){
-		margin-bottom: 90px;
+section {
+  margin-bottom: 190px;
+  @media (max-width: 760px) {
+    margin-bottom: 90px;
   }
-	@media (max-width:576px){
-		margin-bottom: 40px;
+  @media (max-width: 576px) {
+    margin-bottom: 40px;
   }
 }
 
-.d-sm-none{
-	@media (max-width:576px){
-	display: none;
+.d-sm-none {
+  @media (max-width: 576px) {
+    display: none;
   }
 }
 
 .btn {
   padding-top: 28px;
-	display: block;
+  display: block;
   padding-bottom: 24px;
   cursor: pointer;
   border-radius: 10px;
@@ -110,13 +103,13 @@ section{
   text-align: center;
   color: #ffffff;
   width: 290px;
-	max-width: 95%;
+  max-width: 95%;
   outline: none;
   border: none;
   &:hover {
     background: darken($color: $accent, $amount: 25);
   }
-	&:focus {
-		border: 1px solid #a7a7a7;
-	}
+  &:focus {
+    border: 1px solid #a7a7a7;
+  }
 }

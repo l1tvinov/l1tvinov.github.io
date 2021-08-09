@@ -1,104 +1,85 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</script>
 
 <div class="hystmodal" id="Modal" aria-hidden="true">
-  <div class="hystmodal__wrap">
-    <div class="hystmodal__window" role="dialog" aria-modal="true">
-      <button data-hystclose='' class="hystmodal__close">Закрыть</button>
-      <div class="hystmodal__styled">
-        <h2 class="titleSection">Заявка на карту</h2>
-        <form action="###" id="appVue" class="form__body" @submit.prevent="checkForm">
-          <input type="hidden" name="project_name" value="Кредит банк">
-          <input type="hidden" name="admin_email"  value="NEKTO.INC@yandex.ru">
-         
-          <div class="form__item">
-            <label for="formName" class="form__label"
-                  :class="{
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+            <button data-hystclose='' class="hystmodal__close">Закрыть</button>
+            <div class="hystmodal__styled">
+                <h2 class="titleSection">Заявка на карту</h2>
+                <form action="###" id="appVue_OLD" class="form__body" @submit.prevent="checkForm">
+                    <input type="hidden" name="project_name" value="Кредит банк">
+                    <input type="hidden" name="admin_email" value="NEKTO.INC@yandex.ru">
+
+                    <div class="form__item">
+                        <label for="formName" class="form__label" :class="{
                     invalid: $v.name.$dirty &&
                       (!$v.name.required),
                     valid : $v.name.$dirty && !$v.name.$invalid
                   }">
             </label>
-            <input  id="formName" 
-                    type="text" 
-                    name="name" 
-                    class="form__input"
-                    placeholder="ФИО"
-                    v-model="name"
-                    >
-                    <!-- <pre>{{ $v.name }}</pre> -->
-            <div class="error" v-if='$v.name.$error'>Введите имя</div>
-          </div>
-          <div class="form__item">
-            <label for="formEmail" class="form__label"
-                  :class="{
+                        <input id="formName" type="text" name="name" class="form__input" placeholder="ФИО" v-model="name">
+                        <!-- <pre>{{ $v.name }}</pre> -->
+                        <div class="error" v-if='$v.name.$error'>Введите имя</div>
+                    </div>
+                    <div class="form__item">
+                        <label for="formEmail" class="form__label" :class="{
                     invalid: $v.email.$dirty &&
                       ((!$v.email.required) || (!$v.email.email)),
                     valid : $v.email.$dirty && !$v.email.$invalid
                   }">
                   
             </label>
-            <input  id="formEmail" 
-                    type="text" 
-                    name="email" 
-                    class="form__input" 
-                    placeholder="Электронный адрес"
-                    v-model.trim="email">
-                  <!-- <pre>{{ $v.email }}</pre>   -->
-            <div class="error" v-if='$v.email.$error'>Введите электронный адрес</div>
-          </div>
+                        <input id="formEmail" type="text" name="email" class="form__input" placeholder="Электронный адрес" v-model.trim="email">
+                        <!-- <pre>{{ $v.email }}</pre>   -->
+                        <div class="error" v-if='$v.email.$error'>Введите электронный адрес</div>
+                    </div>
 
-          <div class="form__item">
-            <label for="formTel" class="form__label"
-            :class="{invalid: $v.tel.$error, valid : $v.email.$dirty && !$v.tel.$invalid }"></label>
-            <input  id="formTel" 
-                    type="tel" 
-                    name="tel" 
-                    class="form__input" 
-                    placeholder="Номер телефона"
-                    v-model="tel">
-                    <!-- <pre class="error">{{ $v.tel }}</pre> -->
-                    <div class="error" v-if='$v.tel.$error'>Введите телефон</div>
-          </div>
+                    <div class="form__item">
+                        <label for="formTel" class="form__label" :class="{invalid: $v.tel.$error, valid : $v.email.$dirty && !$v.tel.$invalid }"></label>
+                        <input id="formTel" type="tel" name="tel" class="form__input" placeholder="Номер телефона" v-model="tel">
+                        <!-- <pre class="error">{{ $v.tel }}</pre> -->
+                        <div class="error" v-if='$v.tel.$error'>Введите телефон</div>
+                    </div>
 
-          <div class="form__item">
-            <div class="select-wrap">Гражданство</div>
-            <select name="nationality" class="select" v-model="nationality">
+                    <div class="form__item">
+                        <div class="select-wrap">Гражданство</div>
+                        <select name="nationality" class="select" v-model="nationality">
               <option value="" 
               v-for="nationality in nationalities"
               :value="nationality.value">
                 {{nationality.label}}
               </option>
             </select>
-          </div>
+                    </div>
 
-          <div class="form__item">
-            <div class="checkbox">
-              <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input" v-model="agreement">
-              <label for="formAgreement" class="checkbox__label"> <span>Я соглашаюсь на <a href="#"
-                    class="link">обработку</a>
+                    <div class="form__item">
+                        <div class="checkbox">
+                            <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input" v-model="agreement">
+                            <label for="formAgreement" class="checkbox__label"> <span>Я соглашаюсь на <a href="#"
+                    class="link link-form">обработку</a>
                   моих персональных данных </span></label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn form__button" v-bind:disabled='!agreement'>Заказать сейчас</button>
+
+                </form>
+
             </div>
-          </div>
-
-          <button type="submit" class="btn form__button" v-bind:disabled='!agreement'>Заказать сейчас</button>
-
-        </form>
-
-      </div>
+        </div>
     </div>
-  </div>
 
-  <div class="hystmodal" id="thanks" aria-hidden="true">
-    <div class="hystmodal__wrap">
-        <div class="hystmodal__window" role="dialog" aria-modal="true">
-            <button data-hystclose class="hystmodal__close">Закрыть</button>
-            <!-- Ваш HTML код модального окна -->
-            <div class="valid valid-thanks"></div>
-            <h2 class="titleSection">Ваша заявка принята</h2>
-             <div class="subtitleSection">В ближайшее время с вами свяжется наш менеджер</div>
+    <div class="hystmodal" id="thanks" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <button data-hystclose class="hystmodal__close">Закрыть</button>
+
+                <div class="valid valid-thanks"></div>
+                <h2 class="titleSection">Ваша заявка принята</h2>
+                <div class="subtitleSection">В ближайшее время с вами свяжется наш менеджер</div>
+            </div>
         </div>
     </div>
 </div>
- 

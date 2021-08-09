@@ -14,7 +14,6 @@ function animOnScroll() {
     if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
       animItem.classList.add('showAnim');
     }
-    // else{animItem.classList.remove('showAnim');}
   }
 }
 
