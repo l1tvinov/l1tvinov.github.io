@@ -1,0 +1,178 @@
+.start {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	position: relative;
+}
+
+.fullscreen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.social {
+  text-align: center;
+
+  &__title {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 41px;
+    color: #3c3c3f;
+    padding: 10px 15px;
+    border: 1px solid #000000;
+    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  &__messager {
+  }
+
+  &__messager-link {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+.telegram {
+  background-image: url("../img/telegram.svg");
+}
+.whatsapp {
+  background-image: url("../img/whatsapp.svg");
+}
+.mail {
+  background-image: url("../img/mail.svg");
+}
+h1.title {
+  font-size: var(--h1-font-size);
+  // font-size: 130px;
+  color: #ffffff;
+  opacity: 0.75;
+  text-shadow: 0px 4px 4px rgba(161, 155, 155, 0.75);
+  margin: 20px 0 60px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+.col {
+  width: 50%;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+.end {
+  align-self: flex-end;
+}
+.about {
+  &__title {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #3c3c3f;
+  }
+
+  &__text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.avatar {
+  position: relative;
+  &__bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    width: 100%;
+    @media (max-width: 992px) {
+      height: 320px;
+    }
+  }
+}
+.arrow {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+	animation-name: fadeInDown;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+	animation-iteration-count:infinite;
+}
+
+.paralax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.flyicon1, .flyicon2, .flyicon3, .flyicon4, .flyicon5, .flyicon6, .flyicon7{
+	width: 80px;
+	position: absolute;
+	filter: drop-shadow(-35px 61px 22px #000);
+}
+.flyicon1{
+	top: 69%;
+	left: 81%;
+	
+}
+.flyicon2{
+	top: 50%;
+	left: 8%;
+	
+}
+.flyicon3{
+	top: 11%;
+	left: 67%;
+	
+}
+.flyicon4{
+	top: 56%;
+	left: 52%;
+	
+}
+.flyicon5{
+	top: 17%;
+	left: 16%;
+	
+}
+.flyicon6{
+	top: 15%;
+	left: 90%;
+	
+}
+.flyicon7{
+	top: 83%;
+	left: 16%;
+	
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0.3;
+    transform: translate3d(0, -30%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+

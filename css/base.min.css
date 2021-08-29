@@ -1,0 +1,1 @@
+*{-webkit-box-sizing:border-box;box-sizing:border-box}:root{--base-scale:calc(100vw / 75);--h1-font-size:max(30px, min(140px, calc(var(--base-scale) * 4)))}body{height:100%;margin:0;padding:0}section{min-height:100vh;height:100%}.container{max-width:1200px;margin:0 auto;padding-left:15px;padding-right:15px}
