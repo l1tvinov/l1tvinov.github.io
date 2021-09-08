@@ -24,8 +24,8 @@
       <div class="row">
         <div class="col">
           <div class="about">
-            <div class="about__title">Обо мне</div>
-            <div class="about__text">
+            <div class="about__title animation">Обо мне</div>
+            <div class="about__text animation">
               <p>Меня зовут Алексей Литвинов, я frontend devoloper, занимаюсь разработкой сайтов.</p>
               <p>Современная верстка сайтов с использованием gulp, scss, flexbox, grid layout.</p>
               <p>Интеграция верстки на cms</p>
@@ -52,7 +52,9 @@
     <img class="flyicon6" src="img/gulp.png" alt="">
     <img class="flyicon7" src="img/jq.png" alt="">
   </section>
-  <div class="paralax" style="background-image: url('img/paralax.jpg');"></div>
+  <div class="paralax" style="background-image: url('img/paralax.jpg');">
+  <div id="fly"><img src="https://img.icons8.com/dusk/64/000000/rocket--v2.png"/></div>
+  </div>
   <section class="project">
     <div class="container">
       <div class="wrapper">
@@ -60,12 +62,12 @@
           <div class="title">Проекты </div>
         </div>
         <div class="content">
-          <div class="items">
+          <div class="items animation">
 
 
             <div class="item">
-              <a class="item-wrapper" href="/credit_bank/dist/index.html"
-                style="background-image: url('img/stubs.jpg');">
+              <a class="item-wrapper" href="/credit_bank/dist/index.html" style="background-image: url('img/p1.jpg');"
+                target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
@@ -78,7 +80,7 @@
 
 
             <div class="item">
-              <a class="item-wrapper" href="/je-taime/" style="background-image: url('img/stubs.jpg');">
+              <a class="item-wrapper" href="/je-taime/" style="background-image: url('img/p2.jpg');" target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
@@ -93,13 +95,13 @@
             <div class="item">
               <!-- <a class="item-wrapper" href="/coffee_company/index.html"
                 style="background-image: url('img/stubs.jpg');"> -->
-                <a class="item-wrapper" href="https://lcc.group/"
-                style="background-image: url('img/stubs.jpg');">
+              <a class="item-wrapper" href="https://lcc.group/" style="background-image: url('img/p3.jpg');"
+                target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
                     <div class="item-name">
-                      Сайт каталог</div>
+                      Coffee </div>
                     <div class="item-description">
                       Многостраничный сайт магазина кофе</div>
                   </div>
@@ -109,7 +111,7 @@
 
             <div class="item">
               <a class="item-wrapper" href="https://smartchips.ru/index.html"
-                style="background-image: url('img/stubs.jpg');">
+                style="background-image: url('img/p4.jpg');" target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
@@ -121,7 +123,8 @@
             </div>
 
             <div class="item">
-              <a class="item-wrapper" href="https://xn----8sbwbbh4afdmqbi3k.xn--p1ai/" style="background-image: url('img/stubs.jpg');">
+              <a class="item-wrapper" href="https://xn----8sbwbbh4afdmqbi3k.xn--p1ai/"
+                style="background-image: url('img/p5.jpg');" target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
@@ -134,7 +137,7 @@
 
             <div class="item">
               <a class="item-wrapper" href="/robonet_project/dist/index.html"
-                style="background-image: url('img/stubs.jpg');">
+                style="background-image: url('img/p6.jpg');" target="_blank">
                 <div class="item-overlay"></div>
                 <div class="item-content">
                   <div class="item-information">
@@ -146,7 +149,7 @@
             </div>
 
 
-            
+
 
           </div>
         </div>
@@ -154,19 +157,23 @@
     </div>
   </section>
 
-
+  <div class="container">
+    <h2>Игра на JS</h2>
+    <p class="text">Кликни по шарику максимальное количество раз за отведенное время</p>
     <div class="app">
       <div class="app__header">
         <h1 id="time-header">Время игры: <span id="time"></span><span> сек</span></h1>
         <h1 id="result-header" class="hide">Ваш результат: <span id="result"></span></h1>
       </div>
+      <button class="btn" id="start">Начать</button>
+
       <div class="app__content">
-        <button class="btn" id="start">Начать</button>
-  
+        
         <div class="game" id="game"></div>
       </div>
     </div>
-  
+  </div>
+
 
 
 
@@ -174,6 +181,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/libs.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
 </body>
 
 </html>
