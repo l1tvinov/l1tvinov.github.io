@@ -108,10 +108,8 @@ setTimeout(() => {
 
 
 document.addEventListener('scroll', () => {
-  let scrollEL = document.body.scrollTop;
-  console.log(scrollY);
-
-  document.querySelector('#fly').style.left = scrollY + 'px';
+ 
+  document.querySelector('#fly').style.left = (scrollY/15) + '%';
 })
 
 });

@@ -149,6 +149,18 @@ h1.title {
   background-size: cover;
   height: 500px;
   position: relative;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+}
+
+#fly {
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
 }
 
 .flyicon1,
@@ -194,13 +206,7 @@ h1.title {
   left: 16%;
 }
 
-#fly {
-  width: 50px;
-  height: 50px;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 50%;
-}
+
 
 @keyframes fadeInDown {
   0% {

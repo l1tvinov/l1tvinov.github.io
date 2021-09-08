@@ -14,8 +14,8 @@
 .items {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -10px;
+  margin-right: -10px;
   &.showAnim {
     .item {
       opacity: 1;
@@ -132,11 +132,7 @@
 }
 
 @media (max-width: 992px) {
-  .items {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
+  
   .item {
     width: calc(50% - 20px);
     margin: 10px;
